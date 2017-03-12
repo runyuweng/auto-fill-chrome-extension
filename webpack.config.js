@@ -3,7 +3,7 @@ var config = {
 
    output: {
       path:'./',
-      filename: './index.js',
+      filename: './Fordring_chrome/bundle.js',
    },
 
    devServer: {
