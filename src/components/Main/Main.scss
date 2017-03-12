@@ -1,0 +1,33 @@
+*{
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+.main{
+  .btn_group{
+    button{
+      width: 90px;
+      height: 30px;
+      color: #fff;
+      padding: 4px 8px;
+      margin: 8px;
+      background: linear-gradient(#37aaea,#117ed2);
+      border: none;
+      border-radius: 4px;
+      transition: background;
+      border: 1px solid #1992d9;
+      &:hover{
+        background: #117ed2;
+      }
+      &:nth-child(1){
+        padding: 4px 8px 4px 2px;
+        img{
+          padding-right: 4px;
+          width:18px;
+          height: 18px;
+          vertical-align: top;
+        }
+      }
+    }
+  }
+}
