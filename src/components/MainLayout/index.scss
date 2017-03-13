@@ -1,0 +1,20 @@
+.mainLayout{
+  width: 480px;
+  header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background: rgba(0,0,0,.8);
+    font-size: 17px;
+    color: #fff;
+    img{
+      margin-top: 12px;
+      cursor: pointer;
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

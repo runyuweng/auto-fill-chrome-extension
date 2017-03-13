@@ -7,9 +7,10 @@
   .btn_group{
     button{
       width: 90px;
-      height: 30px;
+      height: 32px;
       color: #fff;
-      padding: 4px 8px;
+      text-align: center;
+      line-height: 32px;
       margin: 8px;
       background: linear-gradient(#37aaea,#117ed2);
       border: none;
@@ -20,12 +21,12 @@
         background: #117ed2;
       }
       &:nth-child(1){
-        padding: 4px 8px 4px 2px;
         img{
-          padding-right: 4px;
+          margin-top: -4px;
+          margin-right: 4px;
           width:18px;
           height: 18px;
-          vertical-align: top;
+          vertical-align: middle;;
         }
       }
     }
