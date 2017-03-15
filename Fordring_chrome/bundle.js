@@ -26622,6 +26622,29 @@
 	            null,
 	            '\u6027\u522B\uFF1A'
 	          ),
+	          '\u7537',
+	          _react2.default.createElement('input', { type: 'radio', name: 'sex', defaultChecked: true }),
+	          '\u5973',
+	          _react2.default.createElement('input', { type: 'radio', name: 'sex' })
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'label',
+	            null,
+	            '\u51FA\u751F\u65E5\u671F\uFF1A'
+	          ),
+	          _react2.default.createElement('input', { type: 'date' })
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'label',
+	            null,
+	            '\u8BC1\u4EF6\u53F7\u7801\uFF1A'
+	          ),
 	          _react2.default.createElement('input', { type: 'text' })
 	        ),
 	        _react2.default.createElement(
@@ -26630,7 +26653,37 @@
 	          _react2.default.createElement(
 	            'label',
 	            null,
-	            '\u5E74\u9F84\uFF1A'
+	            '\u624B\u673A\uFF1A'
+	          ),
+	          _react2.default.createElement('input', { type: 'text' })
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'label',
+	            null,
+	            '\u7535\u5B50\u90AE\u4EF6\uFF1A'
+	          ),
+	          _react2.default.createElement('input', { type: 'text' })
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'label',
+	            null,
+	            '\u7D27\u6025\u8054\u7CFB\u4EBA\uFF1A'
+	          ),
+	          _react2.default.createElement('input', { type: 'text' })
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'label',
+	            null,
+	            '\u7D27\u6025\u8054\u7CFB\u4EBA\u7535\u8BDD\uFF1A'
 	          ),
 	          _react2.default.createElement('input', { type: 'text' })
 	        )
@@ -26678,7 +26731,7 @@
 
 
 	// module
-	exports.push([module.id, ".fillResume div {\n  margin-top: 20px; }\n\n.fillResume label {\n  display: inline-block;\n  width: 20%;\n  text-align: right; }\n\n.fillResume input {\n  width: 70%;\n  padding-left: 10px;\n  box-shadow: inset 0 1px 4px #AAA;\n  border: 1px solid #d6d6d6;\n  border-radius: 2px;\n  height: 30px;\n  line-height: 30px; }\n", ""]);
+	exports.push([module.id, ".fillResume div {\n  margin-top: 20px; }\n\n.fillResume label {\n  display: inline-block;\n  width: 20%;\n  text-align: right;\n  margin-right: 10px; }\n\n.fillResume input[type='text'] {\n  width: 60%;\n  padding-left: 10px;\n  box-shadow: inset 0 1px 4px #AAA;\n  border: 1px solid #d6d6d6;\n  border-radius: 2px;\n  height: 26px;\n  line-height: 26px; }\n\n.fillResume input[type='radio'] {\n  margin: 0 20px; }\n\n.fillResume input[type='date'] {\n  box-shadow: inset 0 1px 4px #AAA;\n  border: 1px solid #d6d6d6;\n  border-radius: 2px; }\n", ""]);
 
 	// exports
 
@@ -27132,34 +27185,49 @@
 	        'div',
 	        { className: 'main' },
 	        _react2.default.createElement(
-	          'div',
-	          { className: 'btn_group' },
+	          'p',
+	          { className: 'title' },
+	          '\u611F\u8C22\u60A8\u7684\u4F7F\u7528'
+	        ),
+	        _react2.default.createElement(
+	          'ul',
+	          null,
 	          _react2.default.createElement(
-	            _reactRouter.Link,
-	            { to: '/' },
+	            'li',
+	            null,
+	            _react2.default.createElement('img', { src: './img/fill.png' }),
 	            _react2.default.createElement(
-	              'button',
+	              'span',
 	              null,
-	              _react2.default.createElement('img', { src: './img/finish.png' }),
 	              '\u4E00\u952E\u586B\u5145'
 	            )
 	          ),
 	          _react2.default.createElement(
-	            _reactRouter.Link,
-	            { to: '/resume/fill' },
+	            'li',
+	            null,
 	            _react2.default.createElement(
-	              'button',
-	              null,
-	              '\u586B\u5199\u4E2A\u4EBA\u7B80\u5386'
+	              _reactRouter.Link,
+	              { to: '/resume/fill' },
+	              _react2.default.createElement('img', { src: './img/input.png' }),
+	              _react2.default.createElement(
+	                'span',
+	                null,
+	                '\u586B\u5199\u4E2A\u4EBA\u7B80\u5386'
+	              )
 	            )
 	          ),
 	          _react2.default.createElement(
-	            _reactRouter.Link,
-	            { to: '/resume/modify' },
+	            'li',
+	            null,
 	            _react2.default.createElement(
-	              'button',
-	              null,
-	              '\u4FEE\u6539\u4E2A\u4EBA\u7B80\u5386'
+	              _reactRouter.Link,
+	              { to: '/resume/modify' },
+	              _react2.default.createElement('img', { src: './img/modify.png' }),
+	              _react2.default.createElement(
+	                'span',
+	                null,
+	                '\u4FEE\u6539\u4E2A\u4EBA\u7B80\u5386'
+	              )
 	            )
 	          )
 	        )
@@ -27207,7 +27275,7 @@
 
 
 	// module
-	exports.push([module.id, "* {\n  padding: 0;\n  margin: 0;\n  outline: none; }\n\n.main .btn_group button {\n  width: 90px;\n  height: 32px;\n  color: #fff;\n  text-align: center;\n  line-height: 32px;\n  margin: 8px;\n  background: linear-gradient(#37aaea, #117ed2);\n  border: none;\n  border-radius: 4px;\n  transition: background;\n  border: 1px solid #1992d9; }\n  .main .btn_group button:hover {\n    background: #117ed2; }\n  .main .btn_group button:nth-child(1) img {\n    margin-top: -4px;\n    margin-right: 4px;\n    width: 18px;\n    height: 18px;\n    vertical-align: middle; }\n", ""]);
+	exports.push([module.id, "* {\n  font-family: \"Segoe UI\", \"Lucida Grande\", Tahoma, sans-serif;\n  font-size: 10px;\n  padding: 0;\n  margin: 0;\n  outline: none; }\n\na:hover, a:visited, a:link, a:active {\n  color: #0070c9;\n  text-decoration: none; }\n\n.main {\n  padding: 0 20px;\n  width: 160px; }\n  .main ul {\n    padding: 0;\n    list-style: none; }\n    .main ul li {\n      cursor: pointer;\n      color: #0070c9;\n      padding: 14px 0;\n      border-top: 1px solid #e3e3e3; }\n      .main ul li:hover {\n        text-decoration: underline; }\n  .main img {\n    width: 10px;\n    height: 10px;\n    vertical-align: middle;\n    margin-right: 22px;\n    margin-top: -2px; }\n  .main .title {\n    color: #888;\n    padding: 30px 0;\n    margin: 0;\n    text-align: center; }\n", ""]);
 
 	// exports
 
@@ -27266,7 +27334,7 @@
 	          _react2.default.createElement(
 	            'span',
 	            null,
-	            'title'
+	            '\u7B80\u5386'
 	          ),
 	          _react2.default.createElement('span', null)
 	        ),
@@ -27315,7 +27383,7 @@
 
 
 	// module
-	exports.push([module.id, ".mainLayout {\n  width: 480px; }\n  .mainLayout header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    height: 40px;\n    line-height: 40px;\n    text-align: center;\n    background: rgba(0, 0, 0, 0.8);\n    font-size: 17px;\n    color: #fff; }\n    .mainLayout header img {\n      margin-top: 12px;\n      cursor: pointer;\n      width: 20px;\n      height: 20px; }\n", ""]);
+	exports.push([module.id, ".mainLayout {\n  width: 340px; }\n  .mainLayout header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    height: 40px;\n    line-height: 40px;\n    text-align: center;\n    background: rgba(0, 0, 0, 0.8);\n    font-size: 17px;\n    color: #fff; }\n    .mainLayout header img {\n      margin-top: 12px;\n      cursor: pointer;\n      width: 20px;\n      height: 20px; }\n", ""]);
 
 	// exports
 

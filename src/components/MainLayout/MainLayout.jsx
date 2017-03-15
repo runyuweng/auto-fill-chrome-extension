@@ -8,7 +8,7 @@ class MainLayout extends React.Component {
         <div className='mainLayout'>
           <header>
             <Link to='/'><img src="./img/back.png"/></Link>
-            <span>title</span>
+            <span>简历</span>
             <span></span>
           </header>
           {this.props.children}
