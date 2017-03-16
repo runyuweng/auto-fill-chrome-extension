@@ -26592,18 +26592,59 @@
 	var FillResume = function (_React$Component) {
 	  _inherits(FillResume, _React$Component);
 
-	  function FillResume() {
+	  function FillResume(props) {
 	    _classCallCheck(this, FillResume);
 
-	    return _possibleConstructorReturn(this, (FillResume.__proto__ || Object.getPrototypeOf(FillResume)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (FillResume.__proto__ || Object.getPrototypeOf(FillResume)).call(this, props));
+
+	    _this.state = {
+	      personal: {
+	        name: '',
+	        sex: '',
+	        birth: '',
+	        id: '',
+	        tel: '',
+	        mail: '',
+	        emergency_contact: '',
+	        emergency_contact_tel: '',
+	        language: '',
+	        graduate: ''
+	      }
+	    };
+	    _this.handleChange = _this.handleChange.bind(_this);
+	    _this.handleSubmit = _this.handleSubmit.bind(_this);
+	    return _this;
 	  }
 
 	  _createClass(FillResume, [{
+	    key: 'handleChange',
+	    value: function handleChange(e) {
+	      console.log(e.target.name, e.target.value);
+	      var personal = JSON.parse(JSON.stringify(this.state.personal));
+	      personal[e.target.name] = e.target.value;
+	      this.setState({
+	        personal: personal
+	      });
+	    }
+	  }, {
+	    key: 'handleSubmit',
+	    value: function handleSubmit(e) {
+	      // chrome.extens
+	      console.log(this.state);
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var personal = this.state.personal;
+
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'fillResume' },
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          '\u4E2A\u4EBA\u4FE1\u606F'
+	        ),
 	        _react2.default.createElement(
 	          'div',
 	          null,
@@ -26612,7 +26653,7 @@
 	            null,
 	            '\u59D3\u540D\uFF1A'
 	          ),
-	          _react2.default.createElement('input', { type: 'text' })
+	          _react2.default.createElement('input', { name: 'name', type: 'text', value: personal.name, onChange: this.handleChange })
 	        ),
 	        _react2.default.createElement(
 	          'div',
@@ -26622,10 +26663,7 @@
 	            null,
 	            '\u6027\u522B\uFF1A'
 	          ),
-	          '\u7537',
-	          _react2.default.createElement('input', { type: 'radio', name: 'sex', defaultChecked: true }),
-	          '\u5973',
-	          _react2.default.createElement('input', { type: 'radio', name: 'sex' })
+	          _react2.default.createElement('input', { name: 'name', type: 'text', value: personal.sex, onChange: this.handleChange })
 	        ),
 	        _react2.default.createElement(
 	          'div',
@@ -26635,7 +26673,7 @@
 	            null,
 	            '\u51FA\u751F\u65E5\u671F\uFF1A'
 	          ),
-	          _react2.default.createElement('input', { type: 'date' })
+	          _react2.default.createElement('input', { name: 'birth', type: 'date', value: personal.birth, onChange: this.handleChange })
 	        ),
 	        _react2.default.createElement(
 	          'div',
@@ -26645,7 +26683,7 @@
 	            null,
 	            '\u8BC1\u4EF6\u53F7\u7801\uFF1A'
 	          ),
-	          _react2.default.createElement('input', { type: 'text' })
+	          _react2.default.createElement('input', { name: 'id', type: 'text', value: personal.id, onChange: this.handleChange })
 	        ),
 	        _react2.default.createElement(
 	          'div',
@@ -26655,7 +26693,7 @@
 	            null,
 	            '\u624B\u673A\uFF1A'
 	          ),
-	          _react2.default.createElement('input', { type: 'text' })
+	          _react2.default.createElement('input', { name: 'tel', type: 'text', value: personal.tel, onChange: this.handleChange })
 	        ),
 	        _react2.default.createElement(
 	          'div',
@@ -26665,7 +26703,7 @@
 	            null,
 	            '\u7535\u5B50\u90AE\u4EF6\uFF1A'
 	          ),
-	          _react2.default.createElement('input', { type: 'text' })
+	          _react2.default.createElement('input', { name: 'mail', type: 'text', value: personal.mail, onChange: this.handleChange })
 	        ),
 	        _react2.default.createElement(
 	          'div',
@@ -26675,7 +26713,7 @@
 	            null,
 	            '\u7D27\u6025\u8054\u7CFB\u4EBA\uFF1A'
 	          ),
-	          _react2.default.createElement('input', { type: 'text' })
+	          _react2.default.createElement('input', { name: 'emergency_contact', type: 'text', value: personal.emergency_contact, onChange: this.handleChange })
 	        ),
 	        _react2.default.createElement(
 	          'div',
@@ -26685,7 +26723,41 @@
 	            null,
 	            '\u7D27\u6025\u8054\u7CFB\u4EBA\u7535\u8BDD\uFF1A'
 	          ),
-	          _react2.default.createElement('input', { type: 'text' })
+	          _react2.default.createElement('input', { name: 'emergency_contact_tel', type: 'text', value: personal.emergency_contact_tel, onChange: this.handleChange })
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'label',
+	            null,
+	            '\u82F1\u8BED\u7B49\u7EA7\uFF1A'
+	          ),
+	          _react2.default.createElement('input', { name: 'language', type: 'text', value: personal.language, onChange: this.handleChange })
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'label',
+	            null,
+	            '\u9884\u8BA1\u6BD5\u4E1A\u65F6\u95F4\uFF1A'
+	          ),
+	          _react2.default.createElement('input', { name: 'graduate', type: 'date', value: personal.graduate, onChange: this.handleChange })
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'button',
+	            { onClick: this.handleSubmit },
+	            '\u63D0\u4EA4'
+	          ),
+	          _react2.default.createElement(
+	            'button',
+	            { className: 'btn_reset' },
+	            '\u91CD\u7F6E'
+	          )
 	        )
 	      );
 	    }
@@ -26731,7 +26803,7 @@
 
 
 	// module
-	exports.push([module.id, ".fillResume div {\n  margin-top: 20px; }\n\n.fillResume label {\n  display: inline-block;\n  width: 20%;\n  text-align: right;\n  margin-right: 10px; }\n\n.fillResume input[type='text'] {\n  width: 60%;\n  padding-left: 10px;\n  box-shadow: inset 0 1px 4px #AAA;\n  border: 1px solid #d6d6d6;\n  border-radius: 2px;\n  height: 26px;\n  line-height: 26px; }\n\n.fillResume input[type='radio'] {\n  margin: 0 20px; }\n\n.fillResume input[type='date'] {\n  box-shadow: inset 0 1px 4px #AAA;\n  border: 1px solid #d6d6d6;\n  border-radius: 2px; }\n", ""]);
+	exports.push([module.id, ".fillResume p {\n  padding-top: 18px;\n  padding-left: 30px;\n  font-size: 18px;\n  white-space: normal;\n  color: #000;\n  display: inline-block;\n  font-weight: bold; }\n\n.fillResume div {\n  margin-top: 20px; }\n\n.fillResume label {\n  vertical-align: middle;\n  display: inline-block;\n  width: 20%;\n  text-align: right;\n  margin-right: 10px; }\n\n.fillResume input[type='text'] {\n  width: 60%;\n  padding-left: 10px;\n  box-shadow: inset 0 1px 4px #AAA;\n  border: 1px solid #d6d6d6;\n  border-radius: 2px;\n  height: 26px;\n  line-height: 26px; }\n\n.fillResume input[type='radio'] {\n  margin: 0 20px; }\n\n.fillResume input[type='date'] {\n  box-shadow: inset 0 1px 4px #AAA;\n  border: 1px solid #d6d6d6;\n  border-radius: 2px;\n  height: 26px;\n  line-height: 26px; }\n\n.fillResume button {\n  margin-left: 80px;\n  color: #fff;\n  line-height: 14px;\n  padding: 7px 28px;\n  box-shadow: none;\n  background: 0;\n  border: 0;\n  border-radius: 4px;\n  cursor: pointer;\n  background: linear-gradient(#37aaea, #117ed2); }\n\n.fillResume .btn_reset {\n  margin-left: 20px; }\n", ""]);
 
 	// exports
 
@@ -27338,7 +27410,11 @@
 	          ),
 	          _react2.default.createElement('span', null)
 	        ),
-	        this.props.children
+	        _react2.default.createElement(
+	          'section',
+	          { className: 'children' },
+	          this.props.children
+	        )
 	      );
 	    }
 	  }]);
@@ -27383,7 +27459,7 @@
 
 
 	// module
-	exports.push([module.id, ".mainLayout {\n  width: 340px; }\n  .mainLayout header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    height: 40px;\n    line-height: 40px;\n    text-align: center;\n    background: rgba(0, 0, 0, 0.8);\n    font-size: 17px;\n    color: #fff; }\n    .mainLayout header img {\n      margin-top: 12px;\n      cursor: pointer;\n      width: 20px;\n      height: 20px; }\n", ""]);
+	exports.push([module.id, ".mainLayout {\n  width: 340px; }\n  .mainLayout header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    height: 40px;\n    line-height: 40px;\n    text-align: center;\n    background: rgba(0, 0, 0, 0.8);\n    font-size: 17px;\n    color: #fff; }\n    .mainLayout header img {\n      margin-top: 12px;\n      cursor: pointer;\n      width: 20px;\n      height: 20px; }\n  .mainLayout .children {\n    height: 380px;\n    overflow: scroll; }\n", ""]);
 
 	// exports
 

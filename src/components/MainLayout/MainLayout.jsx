@@ -11,7 +11,9 @@ class MainLayout extends React.Component {
             <span>简历</span>
             <span></span>
           </header>
-          {this.props.children}
+          <section className="children">
+            {this.props.children}
+          </section>
         </div>
     )
   }
