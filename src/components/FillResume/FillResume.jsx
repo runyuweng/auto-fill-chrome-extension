@@ -31,19 +31,20 @@ class FillResume extends React.Component {
     })
   }
   handleSubmit(e){
-    // chrome.extens
-    console.log(this.state);
+    chrome.extension.sendRequest({type: "save",text:this.state}, function(response) {
+      console.log(response);
+    });
   }
   render() {
     const {personal} = this.state;
     return(
       <div className="fillResume">
-        <p>个人信息</p>
+        <p><img src="./img/personal.png"/>个人信息</p>
         <div>
           <label>姓名：</label><input name="name" type="text" value={personal.name} onChange={this.handleChange}/>
         </div>
         <div>
-          <label>性别：</label><input name="name" type="text" value={personal.sex} onChange={this.handleChange}/>
+          <label>性别：</label><input name="sex" type="text" value={personal.sex} onChange={this.handleChange}/>
         </div>
         <div>
           <label>出生日期：</label><input name="birth" type="date" value={personal.birth} onChange={this.handleChange}/>

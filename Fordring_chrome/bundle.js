@@ -26629,8 +26629,9 @@
 	  }, {
 	    key: 'handleSubmit',
 	    value: function handleSubmit(e) {
-	      // chrome.extens
-	      console.log(this.state);
+	      chrome.extension.sendRequest({ type: "save", text: this.state }, function (response) {
+	        console.log(response);
+	      });
 	    }
 	  }, {
 	    key: 'render',
@@ -26643,6 +26644,7 @@
 	        _react2.default.createElement(
 	          'p',
 	          null,
+	          _react2.default.createElement('img', { src: './img/personal.png' }),
 	          '\u4E2A\u4EBA\u4FE1\u606F'
 	        ),
 	        _react2.default.createElement(
@@ -26803,7 +26805,7 @@
 
 
 	// module
-	exports.push([module.id, ".fillResume p {\n  padding-top: 18px;\n  padding-left: 30px;\n  font-size: 18px;\n  white-space: normal;\n  color: #000;\n  display: inline-block;\n  font-weight: bold; }\n\n.fillResume div {\n  margin-top: 20px; }\n\n.fillResume label {\n  vertical-align: middle;\n  display: inline-block;\n  width: 20%;\n  text-align: right;\n  margin-right: 10px; }\n\n.fillResume input[type='text'] {\n  width: 60%;\n  padding-left: 10px;\n  box-shadow: inset 0 1px 4px #AAA;\n  border: 1px solid #d6d6d6;\n  border-radius: 2px;\n  height: 26px;\n  line-height: 26px; }\n\n.fillResume input[type='radio'] {\n  margin: 0 20px; }\n\n.fillResume input[type='date'] {\n  box-shadow: inset 0 1px 4px #AAA;\n  border: 1px solid #d6d6d6;\n  border-radius: 2px;\n  height: 26px;\n  line-height: 26px; }\n\n.fillResume button {\n  margin-left: 80px;\n  color: #fff;\n  line-height: 14px;\n  padding: 7px 28px;\n  box-shadow: none;\n  background: 0;\n  border: 0;\n  border-radius: 4px;\n  cursor: pointer;\n  background: linear-gradient(#37aaea, #117ed2); }\n\n.fillResume .btn_reset {\n  margin-left: 20px; }\n", ""]);
+	exports.push([module.id, ".fillResume {\n  padding: 20px 0; }\n  .fillResume p {\n    padding-left: 24px;\n    font-size: 18px;\n    white-space: normal;\n    color: #000;\n    display: inline-block;\n    font-weight: bold; }\n    .fillResume p img {\n      vertical-align: middle;\n      width: 24px;\n      height: 20px; }\n  .fillResume div {\n    margin-top: 20px; }\n  .fillResume label {\n    vertical-align: middle;\n    display: inline-block;\n    width: 20%;\n    text-align: right;\n    margin-right: 10px; }\n  .fillResume input[type='text'] {\n    width: 65%;\n    padding-left: 10px;\n    box-shadow: inset 0 1px 4px #AAA;\n    border: 1px solid #d6d6d6;\n    border-radius: 2px;\n    height: 26px;\n    line-height: 26px; }\n  .fillResume input[type='radio'] {\n    margin: 0 20px; }\n  .fillResume input[type='date'] {\n    box-shadow: inset 0 1px 4px #AAA;\n    border: 1px solid #d6d6d6;\n    border-radius: 2px;\n    height: 26px;\n    line-height: 26px; }\n  .fillResume button {\n    margin-left: 80px;\n    color: #fff;\n    line-height: 14px;\n    padding: 7px 28px;\n    box-shadow: none;\n    background: 0;\n    border: 0;\n    border-radius: 4px;\n    cursor: pointer;\n    background: linear-gradient(#37aaea, #117ed2); }\n  .fillResume .btn_reset {\n    margin-left: 20px; }\n", ""]);
 
 	// exports
 
