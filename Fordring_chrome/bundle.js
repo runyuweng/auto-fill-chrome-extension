@@ -60,15 +60,15 @@
 
 	var _FillResume2 = _interopRequireDefault(_FillResume);
 
-	var _ModifyResume = __webpack_require__(238);
+	var _ModifyResume = __webpack_require__(241);
 
 	var _ModifyResume2 = _interopRequireDefault(_ModifyResume);
 
-	var _Main = __webpack_require__(241);
+	var _Main = __webpack_require__(244);
 
 	var _Main2 = _interopRequireDefault(_Main);
 
-	var _MainLayout = __webpack_require__(244);
+	var _MainLayout = __webpack_require__(247);
 
 	var _MainLayout2 = _interopRequireDefault(_MainLayout);
 
@@ -26581,6 +26581,10 @@
 
 	__webpack_require__(234);
 
+	var _Message = __webpack_require__(238);
+
+	var _Message2 = _interopRequireDefault(_Message);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -26609,10 +26613,12 @@
 	        emergency_contact_tel: '',
 	        language: '',
 	        graduate: ''
-	      }
+	      },
+	      hasSubmit: false
 	    };
 	    _this.handleChange = _this.handleChange.bind(_this);
 	    _this.handleSubmit = _this.handleSubmit.bind(_this);
+	    _this.handleReset = _this.handleReset.bind(_this);
 	    return _this;
 	  }
 
@@ -26627,16 +26633,38 @@
 	      });
 	    }
 	  }, {
+	    key: 'handleReset',
+	    value: function handleReset() {
+	      this.setState({
+	        personal: {
+	          name: '',
+	          sex: '',
+	          birth: '',
+	          id: '',
+	          tel: '',
+	          mail: '',
+	          emergency_contact: '',
+	          emergency_contact_tel: '',
+	          language: '',
+	          graduate: ''
+	        },
+	        hasSubmit: false
+	      });
+	    }
+	  }, {
 	    key: 'handleSubmit',
 	    value: function handleSubmit(e) {
-	      chrome.extension.sendRequest({ type: "save", text: this.state }, function (response) {
-	        console.log(response);
-	      });
+	      this.setState({ hasSubmit: true });
+	      // chrome.extension.sendRequest({type: "save",text:this.state}, function(response) {
+	      //   console.log(response);
+	      // });
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var personal = this.state.personal;
+	      var _state = this.state,
+	          personal = _state.personal,
+	          hasSubmit = _state.hasSubmit;
 
 	      return _react2.default.createElement(
 	        'div',
@@ -26644,112 +26672,150 @@
 	        _react2.default.createElement(
 	          'p',
 	          null,
-	          _react2.default.createElement('img', { src: './img/personal.png' }),
 	          '\u4E2A\u4EBA\u4FE1\u606F'
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          null,
+	          { className: 'mt20' },
 	          _react2.default.createElement(
 	            'label',
 	            null,
 	            '\u59D3\u540D\uFF1A'
 	          ),
-	          _react2.default.createElement('input', { name: 'name', type: 'text', value: personal.name, onChange: this.handleChange })
+	          _react2.default.createElement('input', {
+	            className: hasSubmit && !personal.name ? "failed" : '',
+	            name: 'name', type: 'text',
+	            value: personal.name,
+	            onChange: this.handleChange })
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          null,
+	          { className: 'mt20' },
 	          _react2.default.createElement(
 	            'label',
 	            null,
 	            '\u6027\u522B\uFF1A'
 	          ),
-	          _react2.default.createElement('input', { name: 'name', type: 'text', value: personal.sex, onChange: this.handleChange })
+	          _react2.default.createElement('input', {
+	            className: hasSubmit && !personal.sex ? "failed" : '',
+	            name: 'sex', type: 'text',
+	            value: personal.sex,
+	            onChange: this.handleChange })
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          null,
+	          { className: 'mt20' },
 	          _react2.default.createElement(
 	            'label',
 	            null,
 	            '\u51FA\u751F\u65E5\u671F\uFF1A'
 	          ),
-	          _react2.default.createElement('input', { name: 'birth', type: 'date', value: personal.birth, onChange: this.handleChange })
+	          _react2.default.createElement('input', {
+	            className: hasSubmit && !personal.birth ? "failed" : '',
+	            name: 'birth', type: 'date',
+	            value: personal.birth,
+	            onChange: this.handleChange })
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          null,
+	          { className: 'mt20' },
 	          _react2.default.createElement(
 	            'label',
 	            null,
 	            '\u8BC1\u4EF6\u53F7\u7801\uFF1A'
 	          ),
-	          _react2.default.createElement('input', { name: 'id', type: 'text', value: personal.id, onChange: this.handleChange })
+	          _react2.default.createElement('input', {
+	            className: hasSubmit && !personal.id ? "failed" : '',
+	            name: 'id', type: 'text',
+	            value: personal.id,
+	            onChange: this.handleChange })
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          null,
+	          { className: 'mt20' },
 	          _react2.default.createElement(
 	            'label',
 	            null,
 	            '\u624B\u673A\uFF1A'
 	          ),
-	          _react2.default.createElement('input', { name: 'tel', type: 'text', value: personal.tel, onChange: this.handleChange })
+	          _react2.default.createElement('input', {
+	            className: hasSubmit && !personal.tel ? "failed" : '',
+	            name: 'tel', type: 'text',
+	            value: personal.tel,
+	            onChange: this.handleChange })
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          null,
+	          { className: 'mt20' },
 	          _react2.default.createElement(
 	            'label',
 	            null,
 	            '\u7535\u5B50\u90AE\u4EF6\uFF1A'
 	          ),
-	          _react2.default.createElement('input', { name: 'mail', type: 'text', value: personal.mail, onChange: this.handleChange })
+	          _react2.default.createElement('input', {
+	            className: hasSubmit && !personal.mail ? "failed" : '',
+	            name: 'mail', type: 'text',
+	            value: personal.mail,
+	            onChange: this.handleChange })
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          null,
+	          { className: 'mt20' },
 	          _react2.default.createElement(
 	            'label',
 	            null,
 	            '\u7D27\u6025\u8054\u7CFB\u4EBA\uFF1A'
 	          ),
-	          _react2.default.createElement('input', { name: 'emergency_contact', type: 'text', value: personal.emergency_contact, onChange: this.handleChange })
+	          _react2.default.createElement('input', {
+	            className: hasSubmit && !personal.emergency_contact ? "failed" : '',
+	            name: 'emergency_contact', type: 'text',
+	            value: personal.emergency_contact, onChange: this.handleChange })
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          null,
+	          { className: 'mt20' },
 	          _react2.default.createElement(
 	            'label',
 	            null,
 	            '\u7D27\u6025\u8054\u7CFB\u4EBA\u7535\u8BDD\uFF1A'
 	          ),
-	          _react2.default.createElement('input', { name: 'emergency_contact_tel', type: 'text', value: personal.emergency_contact_tel, onChange: this.handleChange })
+	          _react2.default.createElement('input', {
+	            className: hasSubmit && !personal.emergency_contact_tel ? "failed" : '',
+	            name: 'emergency_contact_tel', type: 'text',
+	            value: personal.emergency_contact_tel,
+	            onChange: this.handleChange })
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          null,
+	          { className: 'mt20' },
 	          _react2.default.createElement(
 	            'label',
 	            null,
 	            '\u82F1\u8BED\u7B49\u7EA7\uFF1A'
 	          ),
-	          _react2.default.createElement('input', { name: 'language', type: 'text', value: personal.language, onChange: this.handleChange })
+	          _react2.default.createElement('input', {
+	            className: hasSubmit && !personal.language ? "failed" : '',
+	            name: 'language', type: 'text',
+	            value: personal.language,
+	            onChange: this.handleChange })
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          null,
+	          { className: 'mt20' },
 	          _react2.default.createElement(
 	            'label',
 	            null,
 	            '\u9884\u8BA1\u6BD5\u4E1A\u65F6\u95F4\uFF1A'
 	          ),
-	          _react2.default.createElement('input', { name: 'graduate', type: 'date', value: personal.graduate, onChange: this.handleChange })
+	          _react2.default.createElement('input', {
+	            className: hasSubmit && !personal.graduate ? "failed" : '',
+	            name: 'graduate', type: 'date',
+	            value: personal.graduate,
+	            onChange: this.handleChange })
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          null,
+	          { className: 'mt20' },
 	          _react2.default.createElement(
 	            'button',
 	            { onClick: this.handleSubmit },
@@ -26757,7 +26823,7 @@
 	          ),
 	          _react2.default.createElement(
 	            'button',
-	            { className: 'btn_reset' },
+	            { className: 'btn_reset', onClick: this.handleReset },
 	            '\u91CD\u7F6E'
 	          )
 	        )
@@ -26805,7 +26871,7 @@
 
 
 	// module
-	exports.push([module.id, ".fillResume {\n  padding: 20px 0; }\n  .fillResume p {\n    padding-left: 24px;\n    font-size: 18px;\n    white-space: normal;\n    color: #000;\n    display: inline-block;\n    font-weight: bold; }\n    .fillResume p img {\n      vertical-align: middle;\n      width: 24px;\n      height: 20px; }\n  .fillResume div {\n    margin-top: 20px; }\n  .fillResume label {\n    vertical-align: middle;\n    display: inline-block;\n    width: 20%;\n    text-align: right;\n    margin-right: 10px; }\n  .fillResume input[type='text'] {\n    width: 65%;\n    padding-left: 10px;\n    box-shadow: inset 0 1px 4px #AAA;\n    border: 1px solid #d6d6d6;\n    border-radius: 2px;\n    height: 26px;\n    line-height: 26px; }\n  .fillResume input[type='radio'] {\n    margin: 0 20px; }\n  .fillResume input[type='date'] {\n    box-shadow: inset 0 1px 4px #AAA;\n    border: 1px solid #d6d6d6;\n    border-radius: 2px;\n    height: 26px;\n    line-height: 26px; }\n  .fillResume button {\n    margin-left: 80px;\n    color: #fff;\n    line-height: 14px;\n    padding: 7px 28px;\n    box-shadow: none;\n    background: 0;\n    border: 0;\n    border-radius: 4px;\n    cursor: pointer;\n    background: linear-gradient(#37aaea, #117ed2); }\n  .fillResume .btn_reset {\n    margin-left: 20px; }\n", ""]);
+	exports.push([module.id, ".mt20 {\n  margin-top: 20px; }\n\n.fillResume {\n  padding: 20px 0; }\n  .fillResume p {\n    padding-left: 24px;\n    font-size: 18px;\n    white-space: normal;\n    color: #000;\n    display: inline-block;\n    font-weight: bold; }\n  .fillResume label {\n    vertical-align: middle;\n    display: inline-block;\n    width: 20%;\n    text-align: right;\n    margin-right: 10px; }\n  .fillResume input[type='text'] {\n    width: 65%;\n    padding-left: 10px;\n    box-shadow: inset 0 1px 4px #AAA;\n    border: 1px solid #d6d6d6;\n    border-radius: 2px;\n    height: 26px;\n    line-height: 26px; }\n  .fillResume input[type='radio'] {\n    margin: 0 20px; }\n  .fillResume input[type='date'] {\n    box-shadow: inset 0 1px 4px #AAA;\n    border: 1px solid #d6d6d6;\n    border-radius: 2px;\n    height: 26px;\n    line-height: 26px; }\n  .fillResume button {\n    margin-left: 80px;\n    color: #fff;\n    line-height: 14px;\n    padding: 7px 28px;\n    box-shadow: none;\n    background: 0;\n    border: 0;\n    border-radius: 4px;\n    cursor: pointer;\n    background: linear-gradient(#37aaea, #117ed2); }\n  .fillResume .btn_reset {\n    margin-left: 20px; }\n  .fillResume .failed {\n    border: 1px solid red !important; }\n", ""]);
 
 	// exports
 
@@ -27134,9 +27200,165 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactDom = __webpack_require__(32);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
 	var _reactRouter = __webpack_require__(178);
 
 	__webpack_require__(239);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Message = function (_React$Component) {
+	  _inherits(Message, _React$Component);
+
+	  function Message(props) {
+	    _classCallCheck(this, Message);
+
+	    var _this = _possibleConstructorReturn(this, (Message.__proto__ || Object.getPrototypeOf(Message)).call(this, props));
+
+	    _this.state = { show: '' };
+	    return _this;
+	  }
+
+	  _createClass(Message, [{
+	    key: 'componentWillReceiveProps',
+	    value: function componentWillReceiveProps(props) {
+	      this.showMessage();
+	    }
+	  }, {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.showMessage();
+	    }
+	  }, {
+	    key: 'showMessage',
+	    value: function showMessage() {
+	      var _this2 = this;
+
+	      this.setState({ show: true });
+	      setTimeout(function () {
+	        _this2.setState({ show: false });
+	      }, 5000);
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var img = {
+	        success: "./img/success.png",
+	        failed: "./img/failed.png"
+	      };
+	      var _props = this.props,
+	          type = _props.type,
+	          word = _props.word;
+	      var show = this.state.show;
+
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        show ? _react2.default.createElement(
+	          'div',
+	          { className: 'message' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'messageContent' },
+	            _react2.default.createElement(
+	              'div',
+	              null,
+	              _react2.default.createElement('img', { src: img[type] })
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              null,
+	              word
+	            )
+	          )
+	        ) : ''
+	      );
+	    }
+	  }]);
+
+	  return Message;
+	}(_react2.default.Component);
+
+	function message(type, word) {
+	  _reactDom2.default.render(_react2.default.createElement(Message, { word: word, type: type }), document.getElementById('message'));
+	}
+	exports.default = {
+	  success: function success(word) {
+	    message('success', word);
+	  },
+	  failed: function failed(word) {
+	    message('failed', word);
+	  }
+	};
+
+/***/ },
+/* 239 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(240);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(237)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/.6.0.3@sass-loader/lib/loader.js!./index.scss", function() {
+				var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/.6.0.3@sass-loader/lib/loader.js!./index.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 240 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(236)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".message {\n  position: fixed;\n  top: 20px;\n  width: 100%;\n  display: flex;\n  flex-grow: center;\n  justify-content: center; }\n  .message .messageContent {\n    margin: 0;\n    padding: 4px;\n    background: #666;\n    color: #fff;\n    border-radius: 4px;\n    animation: showMessage 3s; }\n    .message .messageContent img {\n      vertical-align: bottom;\n      width: 12px;\n      height: 12px; }\n    .message .messageContent div {\n      margin: 0;\n      padding: 0; }\n    .message .messageContent div:nth-child(1) {\n      vertical-align: bottom;\n      display: inline-block;\n      margin-right: 4px; }\n    .message .messageContent div:nth-child(2) {\n      display: inline-block; }\n\n@keyframes showMessage {\n  0% {\n    transform: translate3d(0, -20px, 0);\n    opacity: 0; }\n  100% {\n    transform: translate(0, 0, 0);\n    opacity: 1; } }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 241 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(178);
+
+	__webpack_require__(242);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -27176,13 +27398,13 @@
 	exports.default = ModifyResume;
 
 /***/ },
-/* 239 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(240);
+	var content = __webpack_require__(243);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(237)(content, {});
@@ -27202,7 +27424,7 @@
 	}
 
 /***/ },
-/* 240 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(236)();
@@ -27216,7 +27438,7 @@
 
 
 /***/ },
-/* 241 */
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27233,7 +27455,7 @@
 
 	var _reactRouter = __webpack_require__(178);
 
-	__webpack_require__(242);
+	__webpack_require__(245);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -27315,13 +27537,13 @@
 	exports.default = Main;
 
 /***/ },
-/* 242 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(243);
+	var content = __webpack_require__(246);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(237)(content, {});
@@ -27341,7 +27563,7 @@
 	}
 
 /***/ },
-/* 243 */
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(236)();
@@ -27355,7 +27577,7 @@
 
 
 /***/ },
-/* 244 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27372,7 +27594,7 @@
 
 	var _reactRouter = __webpack_require__(178);
 
-	__webpack_require__(245);
+	__webpack_require__(248);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -27427,13 +27649,13 @@
 	exports.default = MainLayout;
 
 /***/ },
-/* 245 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(246);
+	var content = __webpack_require__(249);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(237)(content, {});
@@ -27453,7 +27675,7 @@
 	}
 
 /***/ },
-/* 246 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(236)();

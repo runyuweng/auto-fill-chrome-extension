@@ -1,3 +1,6 @@
+.mt20{
+  margin-top: 20px;
+}
 .fillResume{
   padding: 20px 0;
   p{
@@ -7,14 +10,6 @@
     color: #000;
     display: inline-block;
     font-weight: bold;
-    img{
-      vertical-align: middle;
-      width: 24px;
-      height: 20px;
-    }
-  }
-  div{
-    margin-top: 20px;
   }
   label{
     vertical-align: middle;
@@ -56,5 +51,8 @@
   }
   .btn_reset{
     margin-left: 20px;
+  }
+  .failed{
+    border: 1px solid red !important;
   }
 }

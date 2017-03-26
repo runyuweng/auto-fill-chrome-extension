@@ -1,0 +1,37 @@
+.message{
+  position: fixed;
+  top: 20px;
+  width: 100%;
+  display: flex;
+  flex-grow: center;
+  justify-content: center;
+  .messageContent{
+    margin: 0;
+    padding: 4px;
+    background: #666;
+    color: #fff;
+    border-radius: 4px;
+    animation: showMessage 3s;
+    img{
+      vertical-align: bottom;
+      width: 12px;
+      height: 12px;
+    }
+    div{
+      margin: 0;
+      padding: 0;
+    }
+    div:nth-child(1){
+      vertical-align: bottom;
+      display: inline-block;
+      margin-right: 4px;
+    }
+    div:nth-child(2){
+      display: inline-block;
+    }
+  }
+}
+@keyframes showMessage{
+  0% {transform: translate3d(0, -20px, 0); opacity: 0}
+  100% {transform: translate(0, 0, 0); opacity: 1}
+}
