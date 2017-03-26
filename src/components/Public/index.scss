@@ -1,6 +1,6 @@
 .message{
   position: fixed;
-  top: 20px;
+  top: 60px;
   width: 100%;
   display: flex;
   flex-grow: center;
@@ -32,6 +32,6 @@
   }
 }
 @keyframes showMessage{
-  0% {transform: translate3d(0, -20px, 0); opacity: 0}
+  0% {transform: translate3d(0, -10px, 0); opacity: 0}
   100% {transform: translate(0, 0, 0); opacity: 1}
 }

@@ -30,7 +30,7 @@ class FillResume extends React.Component {
     let personal = JSON.parse(JSON.stringify(this.state.personal));
     personal[e.target.name] = e.target.value;
     this.setState({
-      personal : personal
+      personal: personal
     })
   }
   handleReset(){
@@ -47,14 +47,29 @@ class FillResume extends React.Component {
         language:'',
         graduate:''
       },
-      hasSubmit:false,
+      hasSubmit:false
     })
   }
   handleSubmit(e){
+    let error = false;
+    const personal = this.state.personal;
+    message.failed('failed');
     this.setState({hasSubmit:true});
-    // chrome.extension.sendRequest({type: "save",text:this.state}, function(response) {
-    //   console.log(response);
-    // });
+    for(let item in personal){
+      if(!personal[item]){
+        error = true;
+      }
+    }
+    if(error){
+      message.failed('请填写完成后提交');
+    }else{
+      chrome.extension.sendRequest({type: "save",text: this.state}, function(response) {
+        if (response.message==="success") {
+          message.success('保存成功');
+        }
+      });
+    }
+
   }
   render() {
     const {personal,hasSubmit} = this.state;

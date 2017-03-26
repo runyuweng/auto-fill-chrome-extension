@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router';
 import './index.scss';
+import message from '../Public/Message.jsx';
 
+console.log(message);
 class Main extends React.Component {
   render() {
     return(
@@ -10,7 +12,13 @@ class Main extends React.Component {
         <ul>
           <li>
             <img src="./img/fill.png"/>
-            <span>一键填充</span>
+            <span onClick={()=>{
+                chrome.extension.sendRequest({type: "fill"}, function(response) {
+                  if (response.message==="success") {
+                    message.success('开始填充');
+                  }
+                });
+              }}>一键填充</span>
           </li>
           <li>
             <Link to='/resume/fill'>

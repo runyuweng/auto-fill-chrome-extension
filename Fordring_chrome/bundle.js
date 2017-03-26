@@ -26654,10 +26654,24 @@
 	  }, {
 	    key: 'handleSubmit',
 	    value: function handleSubmit(e) {
+	      var error = false;
+	      var personal = this.state.personal;
+	      _Message2.default.failed('failed');
 	      this.setState({ hasSubmit: true });
-	      // chrome.extension.sendRequest({type: "save",text:this.state}, function(response) {
-	      //   console.log(response);
-	      // });
+	      for (var item in personal) {
+	        if (!personal[item]) {
+	          error = true;
+	        }
+	      }
+	      if (error) {
+	        _Message2.default.failed('请填写完成后提交');
+	      } else {
+	        chrome.extension.sendRequest({ type: "save", text: this.state }, function (response) {
+	          if (response.message === "success") {
+	            _Message2.default.success('保存成功');
+	          }
+	        });
+	      }
 	    }
 	  }, {
 	    key: 'render',
@@ -26871,7 +26885,7 @@
 
 
 	// module
-	exports.push([module.id, ".mt20 {\n  margin-top: 20px; }\n\n.fillResume {\n  padding: 20px 0; }\n  .fillResume p {\n    padding-left: 24px;\n    font-size: 18px;\n    white-space: normal;\n    color: #000;\n    display: inline-block;\n    font-weight: bold; }\n  .fillResume label {\n    vertical-align: middle;\n    display: inline-block;\n    width: 20%;\n    text-align: right;\n    margin-right: 10px; }\n  .fillResume input[type='text'] {\n    width: 65%;\n    padding-left: 10px;\n    box-shadow: inset 0 1px 4px #AAA;\n    border: 1px solid #d6d6d6;\n    border-radius: 2px;\n    height: 26px;\n    line-height: 26px; }\n  .fillResume input[type='radio'] {\n    margin: 0 20px; }\n  .fillResume input[type='date'] {\n    box-shadow: inset 0 1px 4px #AAA;\n    border: 1px solid #d6d6d6;\n    border-radius: 2px;\n    height: 26px;\n    line-height: 26px; }\n  .fillResume button {\n    margin-left: 80px;\n    color: #fff;\n    line-height: 14px;\n    padding: 7px 28px;\n    box-shadow: none;\n    background: 0;\n    border: 0;\n    border-radius: 4px;\n    cursor: pointer;\n    background: linear-gradient(#37aaea, #117ed2); }\n  .fillResume .btn_reset {\n    margin-left: 20px; }\n  .fillResume .failed {\n    border: 1px solid red !important; }\n", ""]);
+	exports.push([module.id, ".mt20 {\n  margin-top: 20px; }\n\n.fillResume {\n  padding: 20px 0; }\n  .fillResume p {\n    padding-left: 24px;\n    font-size: 18px;\n    white-space: normal;\n    color: #000;\n    display: inline-block;\n    font-weight: bold; }\n  .fillResume label {\n    vertical-align: middle;\n    display: inline-block;\n    width: 20%;\n    text-align: right;\n    margin-right: 10px; }\n  .fillResume input[type='text'] {\n    width: 65%;\n    padding-left: 10px;\n    box-shadow: inset 0 1px 4px #AAA;\n    border: 1px solid #d6d6d6;\n    border-radius: 2px;\n    height: 26px;\n    line-height: 26px; }\n  .fillResume input[type='radio'] {\n    margin: 0 20px; }\n  .fillResume input[type='date'] {\n    box-shadow: inset 0 1px 4px #AAA;\n    border: 1px solid #d6d6d6;\n    border-radius: 2px;\n    height: 26px;\n    line-height: 26px; }\n  .fillResume button {\n    margin-left: 80px;\n    color: #fff;\n    line-height: 14px;\n    padding: 7px 28px;\n    box-shadow: none;\n    background: 0;\n    border: 0;\n    border-radius: 4px;\n    cursor: pointer;\n    background: linear-gradient(#37aaea, #117ed2); }\n  .fillResume .btn_reset {\n    margin-left: 20px; }\n  .fillResume .failed {\n    background: #FFFFC5; }\n", ""]);
 
 	// exports
 
@@ -27335,7 +27349,7 @@
 
 
 	// module
-	exports.push([module.id, ".message {\n  position: fixed;\n  top: 20px;\n  width: 100%;\n  display: flex;\n  flex-grow: center;\n  justify-content: center; }\n  .message .messageContent {\n    margin: 0;\n    padding: 4px;\n    background: #666;\n    color: #fff;\n    border-radius: 4px;\n    animation: showMessage 3s; }\n    .message .messageContent img {\n      vertical-align: bottom;\n      width: 12px;\n      height: 12px; }\n    .message .messageContent div {\n      margin: 0;\n      padding: 0; }\n    .message .messageContent div:nth-child(1) {\n      vertical-align: bottom;\n      display: inline-block;\n      margin-right: 4px; }\n    .message .messageContent div:nth-child(2) {\n      display: inline-block; }\n\n@keyframes showMessage {\n  0% {\n    transform: translate3d(0, -20px, 0);\n    opacity: 0; }\n  100% {\n    transform: translate(0, 0, 0);\n    opacity: 1; } }\n", ""]);
+	exports.push([module.id, ".message {\n  position: fixed;\n  top: 60px;\n  width: 100%;\n  display: flex;\n  flex-grow: center;\n  justify-content: center; }\n  .message .messageContent {\n    margin: 0;\n    padding: 4px;\n    background: #666;\n    color: #fff;\n    border-radius: 4px;\n    animation: showMessage 3s; }\n    .message .messageContent img {\n      vertical-align: bottom;\n      width: 12px;\n      height: 12px; }\n    .message .messageContent div {\n      margin: 0;\n      padding: 0; }\n    .message .messageContent div:nth-child(1) {\n      vertical-align: bottom;\n      display: inline-block;\n      margin-right: 4px; }\n    .message .messageContent div:nth-child(2) {\n      display: inline-block; }\n\n@keyframes showMessage {\n  0% {\n    transform: translate3d(0, -10px, 0);\n    opacity: 0; }\n  100% {\n    transform: translate(0, 0, 0);\n    opacity: 1; } }\n", ""]);
 
 	// exports
 
@@ -27457,6 +27471,10 @@
 
 	__webpack_require__(245);
 
+	var _Message = __webpack_require__(238);
+
+	var _Message2 = _interopRequireDefault(_Message);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -27464,6 +27482,8 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	console.log(_Message2.default);
 
 	var Main = function (_React$Component) {
 	  _inherits(Main, _React$Component);
@@ -27494,7 +27514,15 @@
 	            _react2.default.createElement('img', { src: './img/fill.png' }),
 	            _react2.default.createElement(
 	              'span',
-	              null,
+	              { onClick: function onClick() {
+	                  console.log(111);
+	                  chrome.extension.sendRequest({ type: "fill" }, function (response) {
+	                    console.log(response);
+	                    if (response.message === "success") {
+	                      _Message2.default.success('开始填充');
+	                    }
+	                  });
+	                } },
 	              '\u4E00\u952E\u586B\u5145'
 	            )
 	          ),
